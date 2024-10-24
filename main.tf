@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 module "db-instances" {
-  for_each = var.db-instances
+  for_each = var.db_instances
   source = "./modules/ec2"
   env = var.env
   component_name = each.key
@@ -12,7 +12,7 @@ module "db-instances" {
 }
 
 module "app-instances" {
-  for_each = var.app-instances
+  for_each = var.app_instances
   source = "./modules/ec2"
   env = var.env
   component_name = each.key
@@ -21,7 +21,7 @@ module "app-instances" {
 }
 
 module "web-instances" {
-  for_each = var.web-instances
+  for_each = var.web_instances
   source = "./modules/ec2"
   env = var.env
   component_name = each.key
