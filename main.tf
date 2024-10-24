@@ -8,4 +8,5 @@ module "roboshop" {
   env = var.env
   component_name = each.key
   instance_type = each.value.instance_type
+  app_port = each.value.app_port
 }
