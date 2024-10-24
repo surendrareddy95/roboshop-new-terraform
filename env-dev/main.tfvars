@@ -1,7 +1,6 @@
 env="dev"
 
 database-instances = {
-  default = {
     mongodb = {
       app_port      = 27017
       instance_type = "t3.small"
@@ -18,5 +17,4 @@ database-instances = {
       app_port      = 5672
       instance_type = "t3.small"
     }
-  }
 }
