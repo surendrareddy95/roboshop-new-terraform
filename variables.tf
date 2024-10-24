@@ -1,2 +1,4 @@
 variable "env" {}
-variable "database-instances" {}
+variable "db_instances" {}
+variable "app_instances" {}
+variable "web_instances" {}
