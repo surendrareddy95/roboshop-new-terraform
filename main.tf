@@ -7,5 +7,5 @@ module "roboshop" {
   source = "./modules/ec2"
   env = var.env
   component_name = each.key
-  instance_type = each.value.[instance_type]
+  instance_type = each.value.instance_type
 }
