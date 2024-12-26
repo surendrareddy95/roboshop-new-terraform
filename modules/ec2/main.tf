@@ -33,3 +33,11 @@ resource "aws_instance" "instance" {
     Name = "${var.component_name}-${var.env}"
   }
 }
+
+resource "aws_route53_record" "private" {
+  zone_id = var.private_zone_id
+  name    = "${var.component_name}-${var.env}.surendra.internal"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.instance.private_ip]
+}

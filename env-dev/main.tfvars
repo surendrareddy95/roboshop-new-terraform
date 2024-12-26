@@ -1,4 +1,5 @@
 env="dev"
+private_zone_id = "Z10359391NR9TZ3VZRP3F"
 
 db_instances = {
     mongodb = {
