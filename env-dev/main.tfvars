@@ -1,5 +1,8 @@
 env="dev"
-private_zone_id = "Z10359391NR9TZ3VZRP3F"
+
+private_zone_id = "Z02608971BQRPHGDXOK9I"
+
+domain_name = "surendra22.online"
 
 db_instances = {
     mongodb = {

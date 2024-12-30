@@ -10,6 +10,7 @@ module "db-instances" {
   component_name = each.key
   instance_type = each.value.instance_type
   app_port = each.value.app_port
+  domain_name = var.domain_name
 }
 
 module "app-instances" {
@@ -20,6 +21,7 @@ module "app-instances" {
   component_name = each.key
   instance_type = each.value.instance_type
   app_port = each.value.app_port
+  domain_name = var.domain_name
 }
 
 module "web-instances" {
@@ -30,4 +32,5 @@ module "web-instances" {
   component_name = each.key
   instance_type = each.value.instance_type
   app_port = each.value.app_port
+  domain_name = var.domain_name
 }
