@@ -14,7 +14,7 @@ module "db-instances" {
   for_each = var.db_instances
   source = "./modules/ec2"
   env = var.env
-  private_zone_id = var.private_zone_id
+  private_zone_id = var.zone_id
   component_name = each.key
   instance_type = each.value.instance_type
   app_port = each.value.app_port

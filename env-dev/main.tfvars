@@ -1,6 +1,6 @@
 env="dev"
 
-private_zone_id = "Z02608971BQRPHGDXOK9I"
+zone_id = "Z02608971BQRPHGDXOK9I"
 
 domain_name = "surendra22.online"
 
