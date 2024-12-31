@@ -2,14 +2,6 @@ provider "aws" {
   region = "us-east-1"
 }
 
-provider "vault" {
-  address = "http://vault-internal.surendra22.online:8200"
-  skip_tls_verify = true
-  token = var.vault_token
-}
-
-variable "vault_token" {}
-
 module "db-instances" {
   for_each = var.db_instances
   source = "./modules/ec2"
