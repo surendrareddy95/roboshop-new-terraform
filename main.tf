@@ -2,6 +2,14 @@ provider "aws" {
   region = "us-east-1"
 }
 
+provider "vault" {
+  address = "http://vault-internal.surendra22.online:8200"
+  skip_tls_verify = true
+  token = var.vault_token
+}
+
+variable "vault_token" {}
+
 module "db-instances" {
   for_each = var.db_instances
   source = "./modules/ec2"
@@ -11,6 +19,7 @@ module "db-instances" {
   instance_type = each.value.instance_type
   app_port = each.value.app_port
   domain_name = var.domain_name
+  volume_size = each.value.volume_size
 }
 
 module "app-instances" {
@@ -22,6 +31,7 @@ module "app-instances" {
   instance_type = each.value.instance_type
   app_port = each.value.app_port
   domain_name = var.domain_name
+  volume_size = each.value.volume_size
 }
 
 module "web-instances" {
@@ -33,4 +43,5 @@ module "web-instances" {
   instance_type = each.value.instance_type
   app_port = each.value.app_port
   domain_name = var.domain_name
+  volume_size = each.value.volume_size
 }

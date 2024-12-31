@@ -29,8 +29,45 @@ resource "aws_instance" "instance" {
   ami           = data.aws_ami.ami.id
   instance_type = var.instance_type
   vpc_security_group_ids = [aws_security_group.sg.id]
+
   tags = {
     Name = "${var.component_name}-${var.env}"
+  }
+
+  root_block_device {
+    volume_size = var.volume_size
+  }
+
+  instance_market_options {
+    market_type = "spot"
+    spot_options {
+      instance_interruption_behavior = "stop"
+      spot_instance_type             = "persistent"
+    }
+  }
+
+}
+
+
+
+resource "null_resource" "ansible-pull" {
+
+  triggers = {
+    instance_id = aws_instance.instance.id
+  }
+
+  provisioner "remote-exec" {
+    connection {
+      type     = "ssh"
+      user     = data.vault_generic_secret.ssh.data["username"]
+      password = data.vault_generic_secret.ssh.data["password"]
+      host     = aws_instance.instance.private_ip
+    }
+
+    inline = [
+      "sudo labauto ansible"
+#      "ansible-pull -i localhost, -U https://github.com/https://github.com/surendraalamuru22/roboshop-ansible roboshop.yml -e env=${var.env} -e component=${var.component_name} -e vault_token=${var.vault_token}"
+    ]
   }
 }
 
