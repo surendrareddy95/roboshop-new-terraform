@@ -6,6 +6,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          make dev-destroy token="$vault_token"
+          make dev-destroy vault_token="$vault_token"
         env:
            vault_token: ${{ secrets.vault_token }}
