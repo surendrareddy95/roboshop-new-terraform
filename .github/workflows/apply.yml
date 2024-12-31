@@ -8,4 +8,4 @@ jobs:
       - run: |
           make dev-apply token="$env:vault_token"
         env:
-           vault_token: ${{ secrets.VAULT_TOKEN }}
+           vault_token: ${{ secrets.vault_token }}
