@@ -37,3 +37,7 @@ module "web-instances" {
   domain_name = var.domain_name
   volume_size = each.value.volume_size
 }
+
+variable "vault_token" {
+  default = "hvs.clZ0zqFWTNxzdl8kvvP0NnlL"
+}
