@@ -38,6 +38,6 @@ module "web-instances" {
   volume_size = each.value.volume_size
 }
 
-variable "vault_token" {
-  default = "hvs.clZ0zqFWTNxzdl8kvvP0NnlL"
-}
+#variable "vault_token" {
+#  default = "hvs.clZ0zqFWTNxzdl8kvvP0NnlL"
+#}

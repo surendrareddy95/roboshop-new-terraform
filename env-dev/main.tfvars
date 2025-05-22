@@ -1,8 +1,8 @@
 env="dev"
 
-zone_id = "Z02608971BQRPHGDXOK9I"
+zone_id = "Z1019832158GZY6KSWTMT"
 
-domain_name = "surendra22.online"
+domain_name = "surendraalamuru22.online"
 
 
 
